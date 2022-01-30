@@ -30,4 +30,30 @@ const cardsData = [
 		question: 'Example of Case Sensitive Variable',
 		answer: 'thisIsAVariable'
 	}
-]
+];
+
+// Create all cards
+function createCards() {
+	cardsData.forEach((data,index) => createCard(data,index));
+}
+
+// Create a single card in the DOM
+function createCard(data, index) {
+	const card = document.createElement('div');
+	card.classList.add('card');
+
+	if(index === 0){
+		card.classList.add('active');
+	}
+
+	card.innerHTML = `
+			<div class="inner-card">
+				<div class="inner-card-front">
+					${data.question}
+				</div>
+				<div class="inner-card-back">
+					${data.answer}
+				</div>
+			</div>	
+	`;
+}
