@@ -57,6 +57,9 @@ function createCard(data, index) {
 			</div>	
 	`;
 
+	// Add event listener to add show-answer class on 'Flip' button, so that the card question shows the back view with the answer
+	card.addEventListener('click', () => card.classList.toggle('show-answer'));
+
 	// Add to DOM cards
 	cardsEl.push(card);
 
