@@ -76,3 +76,19 @@ function createCard(data, index) {
 	}
 
 createCards();
+
+// Event listeners
+
+nextBtn.addEventListener('click', () => {
+	cardsEl[currentActiveCard].className = 'card left';
+
+    currentActiveCard = currentActiveCard +1;
+
+	if(currentActiveCard > cardsEl.length -1){
+		currentActiveCard = cardsEl.length -1;
+	}
+
+	cardsEl[currentActiveCard].className = 'card active';
+
+	updateCurrentText();
+});
