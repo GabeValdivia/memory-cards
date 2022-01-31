@@ -84,6 +84,12 @@ function getCardsData() {
 
 }
 
+// Add card to local storage
+function setCardsData(cards) {
+	localStorage.setItem('cards', JSON.stringify(cards));
+	window.location.reload();
+}
+
 createCards();
 
 // Event listeners
