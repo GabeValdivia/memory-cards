@@ -17,20 +17,22 @@ let currentActiveCard = 0;
 const cardsEl = [];
 
 // Store card data
-const cardsData = [
-	{
-		question: 'What must a variable begin with?',
-		answer: 'A letter, $ or _'
-	},
-	{
-		question: 'What is a variable?',
-		answer: 'A container for a piece of data'
-	},
-	{
-		question: 'Example of Case Sensitive Variable',
-		answer: 'thisIsAVariable'
-	}
-];
+const cardsData = getCardsData();
+
+// const cardsData = [
+// 	{
+// 		question: 'What must a variable begin with?',
+// 		answer: 'A letter, $ or _'
+// 	},
+// 	{
+// 		question: 'What is a variable?',
+// 		answer: 'A container for a piece of data'
+// 	},
+// 	{
+// 		question: 'Example of Case Sensitive Variable',
+// 		answer: 'thisIsAVariable'
+// 	}
+// ];
 
 // Create all cards
 function createCards() {
@@ -69,11 +71,18 @@ function createCard(data, index) {
 }
 
 // Show number of cards
-	function updateCurrentText() {
-		currentEl.innerText = `
-			${currentActiveCard + 1}/${cardsEl.length}
-		`;
-	}
+function updateCurrentText() {
+	currentEl.innerText = `
+		${currentActiveCard + 1}/${cardsEl.length}
+	`;
+}
+
+// Get cards from local storage
+function getCardsData() {
+	const cards = JSON.parse(localStorage.getItem('cards'));
+	return cards === null ? [] : cards;
+
+}
 
 createCards();
 
